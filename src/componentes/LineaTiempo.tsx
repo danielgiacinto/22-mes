@@ -31,10 +31,10 @@ export function LineaTiempo({ alAbrir }: Props) {
           return (
             <div key={anio} className="relative">
               <SeparadorAnio anio={anio} />
-              <div className="flex flex-col gap-14 py-4 pl-12 md:gap-20 md:pl-0">
+              <div className="flex flex-col gap-14 py-4 md:gap-20">
                 {delAnio.map((recuerdo, indice) => (
-                  <div key={recuerdo.id} className="relative md:grid md:grid-cols-2 md:items-center">
-                    <span className="absolute top-8 -left-8 z-0 h-2.5 w-2.5 rounded-full border border-[#d7c4b4] bg-crema md:top-8 md:left-1/2 md:z-10 md:h-3 md:w-3 md:-translate-x-1/2" />
+                  <div key={recuerdo.id} className="relative pl-12 md:grid md:grid-cols-2 md:items-center md:pl-0">
+                    <span className="absolute top-8 left-4 z-10 h-2.5 w-2.5 -translate-x-1/2 rounded-full border border-[#d7c4b4] bg-crema md:left-1/2 md:h-3 md:w-3" />
                     {indice % 2 === 0 ? (
                       <>
                         <TarjetaPolaroid

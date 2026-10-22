@@ -45,8 +45,8 @@ function geometriaPetalo(ancho: number, alto: number, curva: number, colorBase: 
     const t = Math.max(0, Math.min(1, y / alto))
     const pliegue = Math.min(1, Math.abs(x) / Math.max(0.001, ancho))
     posicion.setZ(i, posicion.getZ(i) - t * t * curva)
-    actual.copy(base).lerp(punta, t ** 1.05)
-    actual.offsetHSL(0, 0, -0.1 * (1 - t) - pliegue * 0.04)
+    actual.copy(base).lerp(punta, t ** 1.25)
+    actual.offsetHSL(0, 0.06 * (1 - t), -0.14 * (1 - t) - pliegue * 0.07)
     colores[i * 3] = actual.r
     colores[i * 3 + 1] = actual.g
     colores[i * 3 + 2] = actual.b
@@ -96,11 +96,11 @@ function Tulipan() {
   const reducir = useRef(false)
 
   const geoAfuera = useMemo(
-    () => geometriaPetalo(0.4, 1.62, 0.42, '#9d6a66', '#f0ddd8'),
+    () => geometriaPetalo(0.4, 1.62, 0.42, '#c45a54', '#f6d0c8'),
     [],
   )
   const geoAdentro = useMemo(
-    () => geometriaPetalo(0.28, 1.28, 0.3, '#c4928c', '#f7ece8'),
+    () => geometriaPetalo(0.28, 1.28, 0.3, '#e07a72', '#fde6e0'),
     [],
   )
   const geoHoja = useMemo(
@@ -115,7 +115,7 @@ function Tulipan() {
         metalness: 0,
         sheen: 0.6,
         sheenRoughness: 0.5,
-        sheenColor: new Color('#f3d9d4'),
+        sheenColor: new Color('#f4c4bc'),
         clearcoat: 0.05,
         clearcoatRoughness: 0.78,
         side: DoubleSide,
@@ -216,10 +216,10 @@ function EscenaConScroll({ progreso }: PropsFlor) {
     if (!envoltorio.current) return
     suavizado.current = MathUtils.damp(suavizado.current, progreso.current, 1.7, delta)
     const p = suavizado.current * suavizado.current * (3 - 2 * suavizado.current)
-    envoltorio.current.rotation.y = p * 0.28
-    envoltorio.current.rotation.x = p * 0.05
-    envoltorio.current.position.y = -1.82 + p * 0.1
-    envoltorio.current.scale.setScalar(0.88 - p * 0.035)
+    envoltorio.current.rotation.y = p * 0.5
+    envoltorio.current.rotation.x = p * 0.09
+    envoltorio.current.position.y = -1.82 + p * 0.18
+    envoltorio.current.scale.setScalar(0.88 - p * 0.05)
   })
 
   return (
