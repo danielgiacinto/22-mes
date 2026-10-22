@@ -281,7 +281,7 @@ export const recuerdos: Recuerdo[] = [
     anio: 2026,
     archivo: '/fotos/40-2026.jpg',
     texto:
-      'Las flores que te regalé: algo tan lindo que te encanta, y que amo poder darte siempre, porque sus formas, colores y aromas te representan. Tan bonita, hermosa y amable que sos siempre. Te amo en todas tus formas y momentos, en las buenas y en las malas. Siento que lo nuestro es hermoso y conocerte fue espectacular. Todos estos años y todas las cosas que pasamos me dejaron mucho; aprendí tanto de vos que te debo muchísimo. Gracias por ser la mejor novia del mundo. Te merecés todo lo más hermoso. A pesar de todo lo que pase, siempre voy a estar para lo que quieras. Tu cariño vale mucho para mí: me llenás el corazón y el alma, y el corazón me explota cada vez que te siento cerca. Gracias por todo y feliz mes. Te amo por siempre y te extraño mucho.',
+      'Las flores que te regalé: algo tan lindo que te encanta, y que amo poder darte siempre, porque sus formas, colores y aromas te representan. Tan bonita, hermosa y amable que sos siempre. Te amo en todas tus formas y momentos, en las buenas y en las malas. Siento que lo nuestro es hermoso y conocerte fue espectacular. Todos estos años y todas las cosas que pasamos me dejaron mucho; aprendí tanto de vos que te debo muchísimo. Gracias por ser la mejor novia del mundo. Te merecés todo lo más hermoso. A pesar de todo lo que pase, siempre voy a estar para lo que quieras. Tu cariño vale mucho para mí: me llenás el alma y el corazón me explota cada vez que te siento cerca. Gracias por todo y feliz mes. Te amo por siempre y te extraño mucho.',
     esCarta: true,
     rotacion: 0,
   },
