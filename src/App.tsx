@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { FondoJardin } from './componentes/FondoJardin'
 import { LineaTiempo } from './componentes/LineaTiempo'
 import { PetalosFlotantes } from './componentes/PetalosFlotantes'
 import { Portada } from './componentes/Portada'
@@ -11,6 +12,7 @@ function App() {
   return (
     <div className="relative min-h-svh bg-crema text-tinta">
       <div className="grano" aria-hidden="true" />
+      <FondoJardin />
       <PetalosFlotantes />
       <Portada />
       <LineaTiempo alAbrir={setAbierto} />

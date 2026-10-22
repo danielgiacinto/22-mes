@@ -36,7 +36,7 @@ export function TarjetaPolaroid({ recuerdo, lado, alAbrir }: Props) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.28 }}
       transition={{ duration: 0.7, ease: 'easeOut' }}
-      className={`relative mx-auto w-[min(86vw,320px)] md:w-[min(42vw,340px)] ${alineacion}`}
+      className={`relative z-[2] mx-auto w-full max-w-[320px] md:w-[min(42vw,340px)] ${alineacion}`}
     >
       <button
         type="button"

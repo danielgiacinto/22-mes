@@ -47,42 +47,148 @@ body {
   pointer-events: none;
   position: fixed;
   inset: 0;
-  z-index: 40;
-  opacity: 0.18;
+  z-index: 2;
+  opacity: 0.14;
   mix-blend-mode: multiply;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 .petalo {
   position: absolute;
+  top: 0;
+  opacity: 0;
   border-radius: 80% 0 80% 0;
   transform-origin: center;
-  animation: caer-petalo linear infinite;
+  animation: caer-petalo linear infinite both;
   pointer-events: none;
+  will-change: transform, opacity;
 }
 
 @keyframes caer-petalo {
   0% {
-    transform: translate3d(0, -12vh, 0) rotate(0deg);
+    transform: translate3d(0, -20vh, 0) rotate(0deg);
     opacity: 0;
   }
-  8% {
-    opacity: 0.85;
+  12% {
+    opacity: 0.8;
+  }
+  88% {
+    opacity: 0.55;
   }
   100% {
-    transform: translate3d(var(--deriva), 110vh, 0) rotate(360deg);
-    opacity: 0.15;
+    transform: translate3d(var(--deriva), 112vh, 0) rotate(420deg);
+    opacity: 0;
   }
 }
 
 .tulipan-escena {
-  perspective: 1200px;
+  perspective: 1400px;
   transform-style: preserve-3d;
 }
 
-.tulipan {
+.flor-3d {
+  position: relative;
+  width: min(100%, 460px);
+  height: 100%;
+  margin: 0 auto;
   transform-style: preserve-3d;
-  transition: transform 0.35s ease-out;
+  transform-origin: 50% 58%;
+}
+
+.flor-3d-tallo {
+  position: absolute;
+  left: 50%;
+  bottom: 3%;
+  z-index: 1;
+  width: 8px;
+  height: 48%;
+  border-radius: 99px;
+  background: linear-gradient(180deg, #9aaa86 0%, #6d7c5b 100%);
+  transform: translateX(-50%) translateZ(-30px);
+  box-shadow: 4px 0 10px rgba(80, 90, 60, 0.18);
+}
+
+.flor-3d-hoja {
+  position: absolute;
+  z-index: 2;
+  width: 92px;
+  height: 42px;
+  border-radius: 8px 80% 12px 80%;
+  background: radial-gradient(circle at 30% 40%, #b4c49a, #6f805c 70%);
+  transform-style: preserve-3d;
+  box-shadow: 0 8px 16px rgba(70, 80, 50, 0.16);
+}
+
+.flor-3d-hoja-izq {
+  left: 18%;
+  bottom: 28%;
+  transform: rotate(-22deg) rotateY(18deg) translateZ(-12px);
+}
+
+.flor-3d-hoja-der {
+  right: 16%;
+  bottom: 34%;
+  transform: rotate(28deg) scaleX(-1) rotateY(-16deg) translateZ(-8px);
+}
+
+.flor-3d-capullo {
+  position: absolute;
+  left: 50%;
+  bottom: 44%;
+  z-index: 3;
+  width: 0;
+  height: 0;
+  transform-style: preserve-3d;
+}
+
+.flor-3d-petalo {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  border-radius: 50% 50% 46% 46% / 60% 60% 40% 40%;
+  transform-origin: 50% 94%;
+  backface-visibility: visible;
+}
+
+.flor-3d-petalo-atras {
+  width: 118px;
+  height: 168px;
+  margin-left: -59px;
+  background: radial-gradient(ellipse at 50% 18%, #f7ddd8 0%, #e3aaa4 48%, #c98989 100%);
+  box-shadow: inset 0 16px 24px rgba(255, 255, 255, 0.2);
+}
+
+.flor-3d-petalo-lado {
+  width: 92px;
+  height: 150px;
+  margin-left: -46px;
+  background: radial-gradient(ellipse at 38% 22%, #fff4ef 0%, #ecc0bb 34%, #d89690 100%);
+  box-shadow:
+    inset 10px 14px 18px rgba(255, 255, 255, 0.3),
+    inset -10px -16px 20px rgba(140, 70, 70, 0.16);
+}
+
+.flor-3d-petalo-frente {
+  width: 108px;
+  height: 148px;
+  margin-left: -54px;
+  background: radial-gradient(ellipse at 50% 18%, #fffaf7 0%, #f0d0c8 38%, #e3aaa4 100%);
+  box-shadow:
+    inset 8px 12px 16px rgba(255, 255, 255, 0.45),
+    inset -8px -14px 16px rgba(160, 80, 80, 0.12);
+}
+
+.flor-3d-centro {
+  position: absolute;
+  left: 0;
+  bottom: 18px;
+  width: 28px;
+  height: 28px;
+  margin-left: -14px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #fff6ea, #e8b4b4 55%, #c98989);
+  transform: translateZ(46px) rotateX(-18deg);
+  box-shadow: 0 8px 18px rgba(180, 90, 90, 0.28);
 }
 
 .polaroid {
@@ -134,6 +240,10 @@ body {
   .polaroid:focus-visible {
     transform: rotate(0deg) translateY(-4px) scale(1.01);
   }
+
+  .petalo:nth-child(n + 9) {
+    display: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -142,8 +252,12 @@ body {
   }
 
   .petalo,
-  .tulipan {
+  .flor-3d {
     animation: none !important;
     transition: none !important;
+  }
+
+  .petalo {
+    display: none;
   }
 }
